@@ -1,0 +1,10 @@
+{
+  "name": "NodejsPrac",
+  "version": "0.0.0",
+  "description": "NodejsPrac",
+  "main": "app.js",
+  "author": {
+    "name": "aland",
+    "email": ""
+  }
+}

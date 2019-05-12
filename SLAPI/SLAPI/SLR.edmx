@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StockLoanReportsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'StockLoanReports.dbo.vAccounts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vAccounts">
+          <Key>
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="TradeCategory" />
+          </Key>
+          <Property Name="AccountID" Type="int" Nullable="false" />
+          <Property Name="TradeCategory" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DatabaseName" Type="varchar" MaxLength="20" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="ShortName" Type="varchar" MaxLength="10" />
+          <Property Name="ManagementShortName" Type="varchar" MaxLength="10" />
+          <Property Name="TreasuryBook" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'StockLoanReports.dbo.vFixTagMessage' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vFixTagMessage">
+          <Property Name="Tag" Type="int" />
+          <Property Name="FieldName" Type="varchar" MaxLength="150" />
+          <Property Name="Required" Type="varchar" MaxLength="20" />
+          <Property Name="Comment" Type="varchar" MaxLength="700" />
+          <Property Name="FixVersion" Type="varchar" MaxLength="50" />
+          <Property Name="MsgType" Type="varchar" MaxLength="100" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'StockLoanReports.dbo.vPositions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vPositions">
+          <Key>
+            <PropertyRef Name="PositionsID" />
+            <PropertyRef Name="Callable" />
+            <PropertyRef Name="LongInventory" />
+            <PropertyRef Name="OrdAdrConverts" />
+          </Key>
+          <Property Name="DateOfData" Type="datetime" />
+          <Property Name="OustPending" Type="char" MaxLength="1" />
+          <Property Name="BookName" Type="varchar" MaxLength="20" />
+          <Property Name="CtpyCode" Type="varchar" MaxLength="100" />
+          <Property Name="TradeRef" Type="varchar" MaxLength="100" />
+          <Property Name="BorrowLoan" Type="char" MaxLength="1" />
+          <Property Name="Cusip" Type="varchar" MaxLength="10" />
+          <Property Name="Ticker" Type="varchar" MaxLength="50" />
+          <Property Name="Quantity" Type="numeric" Precision="14" Scale="0" />
+          <Property Name="LoanValue" Type="float" />
+          <Property Name="Rate" Type="float" />
+          <Property Name="TradeCategory" Type="varchar" MaxLength="50" />
+          <Property Name="CollTypeInd" Type="char" MaxLength="1" />
+          <Property Name="TradeCollateral" Type="char" MaxLength="1" />
+          <Property Name="PostTransType" Type="varchar" MaxLength="3" />
+          <Property Name="TradeDate" Type="datetime" />
+          <Property Name="SettleDate" Type="datetime" />
+          <Property Name="TermDate" Type="datetime" />
+          <Property Name="PrePayRate" Type="float" />
+          <Property Name="PositionsID" Type="int" Nullable="false" />
+          <Property Name="CTPYID" Type="int" />
+          <Property Name="QtyToProcess" Type="int" />
+          <Property Name="QtyProcessed" Type="int" />
+          <Property Name="CtpyMajor" Type="varchar" MaxLength="6" />
+          <Property Name="Security" Type="varchar" MaxLength="12" />
+          <Property Name="CodeType" Type="char" MaxLength="1" />
+          <Property Name="XRef" Type="varchar" MaxLength="12" />
+          <Property Name="Quick" Type="varchar" MaxLength="12" />
+          <Property Name="Sedol" Type="varchar" MaxLength="10" />
+          <Property Name="SecurityClass" Type="varchar" MaxLength="30" />
+          <Property Name="Issuer" Type="varchar" MaxLength="35" />
+          <Property Name="SecurityDesc" Type="varchar" MaxLength="1000" />
+          <Property Name="LoanValueCurrency" Type="varchar" MaxLength="3" />
+          <Property Name="DealerID" Type="varchar" MaxLength="8" />
+          <Property Name="FirstLastDay" Type="varchar" MaxLength="2" />
+          <Property Name="SecSettleMode" Type="varchar" MaxLength="50" />
+          <Property Name="DvpInd" Type="char" MaxLength="1" />
+          <Property Name="Callable" Type="bit" Nullable="false" />
+          <Property Name="Finder" Type="varchar" MaxLength="100" />
+          <Property Name="FRate" Type="float" />
+          <Property Name="DividendReq" Type="float" />
+          <Property Name="LoanReturn" Type="char" MaxLength="1" />
+          <Property Name="SettledFlag" Type="char" MaxLength="1" />
+          <Property Name="MarketValue" Type="float" />
+          <Property Name="LinkRef" Type="varchar" MaxLength="8" />
+          <Property Name="PricingCurr" Type="varchar" MaxLength="3" />
+          <Property Name="FailCode" Type="varchar" MaxLength="3" />
+          <Property Name="InternalComment" Type="varchar" MaxLength="200" />
+          <Property Name="ExternalComment" Type="varchar" MaxLength="200" />
+          <Property Name="LongInventory" Type="bit" Nullable="false" />
+          <Property Name="PLComments" Type="varchar" MaxLength="100" />
+          <Property Name="InitialValue" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="InitialQuantity" Type="numeric" Precision="14" Scale="0" />
+          <Property Name="RecalledInd" Type="char" MaxLength="1" />
+          <Property Name="UserID" Type="varchar" MaxLength="20" />
+          <Property Name="ImportDate" Type="datetime" />
+          <Property Name="InstrumentId" Type="int" />
+          <Property Name="PnLLoanValue" Type="float" />
+          <Property Name="SecurityClosingPrice" Type="float" />
+          <Property Name="OrdAdrConverts" Type="bit" Nullable="false" />
+          <Property Name="PnLCurrencyValue" Type="varchar" MaxLength="3" />
+          <Property Name="DatabaseId" Type="int" />
+          <Property Name="AccountId" Type="int" />
+          <Property Name="CollReqMargin" Type="numeric" Precision="14" Scale="2" />
+          <Property Name="LegalEntity" Type="varchar" MaxLength="200" />
+          <Property Name="CashSettleMode" Type="varchar" MaxLength="200" />
+          <Property Name="ApexTradeType" Type="varchar" MaxLength="200" />
+          <Property Name="CtpyAgentAccount" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'StockLoanReports.dbo.vPositionspm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vPositionspm">
+          <Key>
+            <PropertyRef Name="PositionsID" />
+            <PropertyRef Name="Callable" />
+            <PropertyRef Name="LongInventory" />
+            <PropertyRef Name="OrdAdrConverts" />
+          </Key>
+          <Property Name="DateOfData" Type="datetime" />
+          <Property Name="OustPending" Type="char" MaxLength="1" />
+          <Property Name="BookName" Type="varchar" MaxLength="20" />
+          <Property Name="CtpyCode" Type="varchar" MaxLength="100" />
+          <Property Name="TradeRef" Type="varchar" MaxLength="12" />
+          <Property Name="BorrowLoan" Type="char" MaxLength="1" />
+          <Property Name="Cusip" Type="varchar" MaxLength="10" />
+          <Property Name="Ticker" Type="varchar" MaxLength="50" />
+          <Property Name="Quantity" Type="numeric" Precision="14" Scale="0" />
+          <Property Name="LoanValue" Type="float" />
+          <Property Name="Rate" Type="float" />
+          <Property Name="TradeCategory" Type="varchar" MaxLength="50" />
+          <Property Name="CollTypeInd" Type="char" MaxLength="1" />
+          <Property Name="TradeCollateral" Type="char" MaxLength="1" />
+          <Property Name="PostTransType" Type="varchar" MaxLength="3" />
+          <Property Name="TradeDate" Type="datetime" />
+          <Property Name="SettleDate" Type="datetime" />
+          <Property Name="TermDate" Type="datetime" />
+          <Property Name="PrePayRate" Type="float" />
+          <Property Name="PositionsID" Type="int" Nullable="false" />
+          <Property Name="CTPYID" Type="int" />
+          <Property Name="QtyToProcess" Type="int" />
+          <Property Name="QtyProcessed" Type="int" />
+          <Property Name="CtpyMajor" Type="varchar" MaxLength="6" />
+          <Property Name="Security" Type="varchar" MaxLength="12" />
+          <Property Name="CodeType" Type="char" MaxLength="1" />
+          <Property Name="XRef" Type="varchar" MaxLength="12" />
+          <Property Name="Quick" Type="varchar" MaxLength="12" />
+          <Property Name="Sedol" Type="varchar" MaxLength="10" />
+          <Property Name="SecurityClass" Type="varchar" MaxLength="30" />
+          <Property Name="Issuer" Type="varchar" MaxLength="35" />
+          <Property Name="SecurityDesc" Type="varchar" MaxLength="40" />
+          <Property Name="LoanValueCurrency" Type="varchar" MaxLength="3" />
+          <Property Name="DealerID" Type="varchar" MaxLength="8" />
+          <Property Name="FirstLastDay" Type="varchar" MaxLength="2" />
+          <Property Name="SecSettleMode" Type="varchar" MaxLength="50" />
+          <Property Name="DvpInd" Type="char" MaxLength="1" />
+          <Property Name="Callable" Type="bit" Nullable="false" />
+          <Property Name="Finder" Type="varchar" MaxLength="6" />
+          <Property Name="FRate" Type="float" />
+          <Property Name="DividendReq" Type="float" />
+          <Property Name="LoanReturn" Type="char" MaxLength="1" />
+          <Property Name="SettledFlag" Type="char" MaxLength="1" />
+          <Property Name="MarketValue" Type="float" />
+          <Property Name="LinkRef" Type="varchar" MaxLength="8" />
+          <Property Name="PricingCurr" Type="varchar" MaxLength="3" />
+          <Property Name="FailCode" Type="varchar" MaxLength="3" />
+          <Property Name="InternalComment" Type="varchar" MaxLength="200" />
+          <Property Name="ExternalComment" Type="varchar" MaxLength="200" />
+          <Property Name="LongInventory" Type="bit" Nullable="false" />
+          <Property Name="PLComments" Type="varchar" MaxLength="100" />
+          <Property Name="InitialValue" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="InitialQuantity" Type="numeric" Precision="14" Scale="0" />
+          <Property Name="RecalledInd" Type="char" MaxLength="1" />
+          <Property Name="UserID" Type="varchar" MaxLength="20" />
+          <Property Name="ImportDate" Type="datetime" />
+          <Property Name="InstrumentId" Type="int" />
+          <Property Name="PnLLoanValue" Type="float" />
+          <Property Name="SecurityClosingPrice" Type="float" />
+          <Property Name="OrdAdrConverts" Type="bit" Nullable="false" />
+          <Property Name="PnLCurrencyValue" Type="varchar" MaxLength="3" />
+          <Property Name="DatabaseId" Type="int" />
+          <Property Name="AccountId" Type="int" />
+          <Property Name="CollReqMargin" Type="numeric" Precision="14" Scale="2" />
+          <Property Name="LegalEntity" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityContainer Name="StockLoanReportsModelStoreContainer">
+          <EntitySet Name="vAccounts" EntityType="Self.vAccounts" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vAccounts].[AccountID] AS [AccountID], 
+    [vAccounts].[TradeCategory] AS [TradeCategory], 
+    [vAccounts].[DatabaseName] AS [DatabaseName], 
+    [vAccounts].[Category] AS [Category], 
+    [vAccounts].[ShortName] AS [ShortName], 
+    [vAccounts].[ManagementShortName] AS [ManagementShortName], 
+    [vAccounts].[TreasuryBook] AS [TreasuryBook]
+    FROM [dbo].[vAccounts] AS [vAccounts]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vPositions" EntityType="Self.vPositions" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vPositions].[DateOfData] AS [DateOfData], 
+    [vPositions].[OustPending] AS [OustPending], 
+    [vPositions].[BookName] AS [BookName], 
+    [vPositions].[CtpyCode] AS [CtpyCode], 
+    [vPositions].[TradeRef] AS [TradeRef], 
+    [vPositions].[BorrowLoan] AS [BorrowLoan], 
+    [vPositions].[Cusip] AS [Cusip], 
+    [vPositions].[Ticker] AS [Ticker], 
+    [vPositions].[Quantity] AS [Quantity], 
+    [vPositions].[LoanValue] AS [LoanValue], 
+    [vPositions].[Rate] AS [Rate], 
+    [vPositions].[TradeCategory] AS [TradeCategory], 
+    [vPositions].[CollTypeInd] AS [CollTypeInd], 
+    [vPositions].[TradeCollateral] AS [TradeCollateral], 
+    [vPositions].[PostTransType] AS [PostTransType], 
+    [vPositions].[TradeDate] AS [TradeDate], 
+    [vPositions].[SettleDate] AS [SettleDate], 
+    [vPositions].[TermDate] AS [TermDate], 
+    [vPositions].[PrePayRate] AS [PrePayRate], 
+    [vPositions].[PositionsID] AS [PositionsID], 
+    [vPositions].[CTPYID] AS [CTPYID], 
+    [vPositions].[QtyToProcess] AS [QtyToProcess], 
+    [vPositions].[QtyProcessed] AS [QtyProcessed], 
+    [vPositions].[CtpyMajor] AS [CtpyMajor], 
+    [vPositions].[Security] AS [Security], 
+    [vPositions].[CodeType] AS [CodeType], 
+    [vPositions].[XRef] AS [XRef], 
+    [vPositions].[Quick] AS [Quick], 
+    [vPositions].[Sedol] AS [Sedol], 
+    [vPositions].[SecurityClass] AS [SecurityClass], 
+    [vPositions].[Issuer] AS [Issuer], 
+    [vPositions].[SecurityDesc] AS [SecurityDesc], 
+    [vPositions].[LoanValueCurrency] AS [LoanValueCurrency], 
+    [vPositions].[DealerID] AS [DealerID], 
+    [vPositions].[FirstLastDay] AS [FirstLastDay], 
+    [vPositions].[SecSettleMode] AS [SecSettleMode], 
+    [vPositions].[DvpInd] AS [DvpInd], 
+    [vPositions].[Callable] AS [Callable], 
+    [vPositions].[Finder] AS [Finder], 
+    [vPositions].[FRate] AS [FRate], 
+    [vPositions].[DividendReq] AS [DividendReq], 
+    [vPositions].[LoanReturn] AS [LoanReturn], 
+    [vPositions].[SettledFlag] AS [SettledFlag], 
+    [vPositions].[MarketValue] AS [MarketValue], 
+    [vPositions].[LinkRef] AS [LinkRef], 
+    [vPositions].[PricingCurr] AS [PricingCurr], 
+    [vPositions].[FailCode] AS [FailCode], 
+    [vPositions].[InternalComment] AS [InternalComment], 
+    [vPositions].[ExternalComment] AS [ExternalComment], 
+    [vPositions].[LongInventory] AS [LongInventory], 
+    [vPositions].[PLComments] AS [PLComments], 
+    [vPositions].[InitialValue] AS [InitialValue], 
+    [vPositions].[InitialQuantity] AS [InitialQuantity], 
+    [vPositions].[RecalledInd] AS [RecalledInd], 
+    [vPositions].[UserID] AS [UserID], 
+    [vPositions].[ImportDate] AS [ImportDate], 
+    [vPositions].[InstrumentId] AS [InstrumentId], 
+    [vPositions].[PnLLoanValue] AS [PnLLoanValue], 
+    [vPositions].[SecurityClosingPrice] AS [SecurityClosingPrice], 
+    [vPositions].[OrdAdrConverts] AS [OrdAdrConverts], 
+    [vPositions].[PnLCurrencyValue] AS [PnLCurrencyValue], 
+    [vPositions].[DatabaseId] AS [DatabaseId], 
+    [vPositions].[AccountId] AS [AccountId], 
+    [vPositions].[CollReqMargin] AS [CollReqMargin], 
+    [vPositions].[LegalEntity] AS [LegalEntity], 
+    [vPositions].[CashSettleMode] AS [CashSettleMode], 
+    [vPositions].[ApexTradeType] AS [ApexTradeType], 
+    [vPositions].[CtpyAgentAccount] AS [CtpyAgentAccount]
+    FROM [dbo].[vPositions] AS [vPositions]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vPositionspm" EntityType="Self.vPositionspm" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vPositionspm].[DateOfData] AS [DateOfData], 
+    [vPositionspm].[OustPending] AS [OustPending], 
+    [vPositionspm].[BookName] AS [BookName], 
+    [vPositionspm].[CtpyCode] AS [CtpyCode], 
+    [vPositionspm].[TradeRef] AS [TradeRef], 
+    [vPositionspm].[BorrowLoan] AS [BorrowLoan], 
+    [vPositionspm].[Cusip] AS [Cusip], 
+    [vPositionspm].[Ticker] AS [Ticker], 
+    [vPositionspm].[Quantity] AS [Quantity], 
+    [vPositionspm].[LoanValue] AS [LoanValue], 
+    [vPositionspm].[Rate] AS [Rate], 
+    [vPositionspm].[TradeCategory] AS [TradeCategory], 
+    [vPositionspm].[CollTypeInd] AS [CollTypeInd], 
+    [vPositionspm].[TradeCollateral] AS [TradeCollateral], 
+    [vPositionspm].[PostTransType] AS [PostTransType], 
+    [vPositionspm].[TradeDate] AS [TradeDate], 
+    [vPositionspm].[SettleDate] AS [SettleDate], 
+    [vPositionspm].[TermDate] AS [TermDate], 
+    [vPositionspm].[PrePayRate] AS [PrePayRate], 
+    [vPositionspm].[PositionsID] AS [PositionsID], 
+    [vPositionspm].[CTPYID] AS [CTPYID], 
+    [vPositionspm].[QtyToProcess] AS [QtyToProcess], 
+    [vPositionspm].[QtyProcessed] AS [QtyProcessed], 
+    [vPositionspm].[CtpyMajor] AS [CtpyMajor], 
+    [vPositionspm].[Security] AS [Security], 
+    [vPositionspm].[CodeType] AS [CodeType], 
+    [vPositionspm].[XRef] AS [XRef], 
+    [vPositionspm].[Quick] AS [Quick], 
+    [vPositionspm].[Sedol] AS [Sedol], 
+    [vPositionspm].[SecurityClass] AS [SecurityClass], 
+    [vPositionspm].[Issuer] AS [Issuer], 
+    [vPositionspm].[SecurityDesc] AS [SecurityDesc], 
+    [vPositionspm].[LoanValueCurrency] AS [LoanValueCurrency], 
+    [vPositionspm].[DealerID] AS [DealerID], 
+    [vPositionspm].[FirstLastDay] AS [FirstLastDay], 
+    [vPositionspm].[SecSettleMode] AS [SecSettleMode], 
+    [vPositionspm].[DvpInd] AS [DvpInd], 
+    [vPositionspm].[Callable] AS [Callable], 
+    [vPositionspm].[Finder] AS [Finder], 
+    [vPositionspm].[FRate] AS [FRate], 
+    [vPositionspm].[DividendReq] AS [DividendReq], 
+    [vPositionspm].[LoanReturn] AS [LoanReturn], 
+    [vPositionspm].[SettledFlag] AS [SettledFlag], 
+    [vPositionspm].[MarketValue] AS [MarketValue], 
+    [vPositionspm].[LinkRef] AS [LinkRef], 
+    [vPositionspm].[PricingCurr] AS [PricingCurr], 
+    [vPositionspm].[FailCode] AS [FailCode], 
+    [vPositionspm].[InternalComment] AS [InternalComment], 
+    [vPositionspm].[ExternalComment] AS [ExternalComment], 
+    [vPositionspm].[LongInventory] AS [LongInventory], 
+    [vPositionspm].[PLComments] AS [PLComments], 
+    [vPositionspm].[InitialValue] AS [InitialValue], 
+    [vPositionspm].[InitialQuantity] AS [InitialQuantity], 
+    [vPositionspm].[RecalledInd] AS [RecalledInd], 
+    [vPositionspm].[UserID] AS [UserID], 
+    [vPositionspm].[ImportDate] AS [ImportDate], 
+    [vPositionspm].[InstrumentId] AS [InstrumentId], 
+    [vPositionspm].[PnLLoanValue] AS [PnLLoanValue], 
+    [vPositionspm].[SecurityClosingPrice] AS [SecurityClosingPrice], 
+    [vPositionspm].[OrdAdrConverts] AS [OrdAdrConverts], 
+    [vPositionspm].[PnLCurrencyValue] AS [PnLCurrencyValue], 
+    [vPositionspm].[DatabaseId] AS [DatabaseId], 
+    [vPositionspm].[AccountId] AS [AccountId], 
+    [vPositionspm].[CollReqMargin] AS [CollReqMargin], 
+    [vPositionspm].[LegalEntity] AS [LegalEntity]
+    FROM [dbo].[vPositionspm] AS [vPositionspm]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StockLoanReportsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="vAccount">
+          <Key>
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="TradeCategory" />
+          </Key>
+          <Property Name="AccountID" Type="Int32" Nullable="false" />
+          <Property Name="TradeCategory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DatabaseName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ManagementShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TreasuryBook" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vPosition">
+          <Key>
+            <PropertyRef Name="PositionsID" />
+            <PropertyRef Name="Callable" />
+            <PropertyRef Name="LongInventory" />
+            <PropertyRef Name="OrdAdrConverts" />
+          </Key>
+          <Property Name="DateOfData" Type="DateTime" Precision="3" />
+          <Property Name="OustPending" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BookName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CtpyCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TradeRef" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BorrowLoan" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Cusip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ticker" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Decimal" Precision="14" Scale="0" />
+          <Property Name="LoanValue" Type="Double" />
+          <Property Name="Rate" Type="Double" />
+          <Property Name="TradeCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CollTypeInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TradeCollateral" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PostTransType" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="TradeDate" Type="DateTime" Precision="3" />
+          <Property Name="SettleDate" Type="DateTime" Precision="3" />
+          <Property Name="TermDate" Type="DateTime" Precision="3" />
+          <Property Name="PrePayRate" Type="Double" />
+          <Property Name="PositionsID" Type="Int32" Nullable="false" />
+          <Property Name="CTPYID" Type="Int32" />
+          <Property Name="QtyToProcess" Type="Int32" />
+          <Property Name="QtyProcessed" Type="Int32" />
+          <Property Name="CtpyMajor" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Security" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="CodeType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="XRef" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Quick" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Sedol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityClass" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Issuer" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="LoanValueCurrency" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DealerID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="FirstLastDay" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SecSettleMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DvpInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Callable" Type="Boolean" Nullable="false" />
+          <Property Name="Finder" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FRate" Type="Double" />
+          <Property Name="DividendReq" Type="Double" />
+          <Property Name="LoanReturn" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="SettledFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MarketValue" Type="Double" />
+          <Property Name="LinkRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="PricingCurr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="FailCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="InternalComment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ExternalComment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LongInventory" Type="Boolean" Nullable="false" />
+          <Property Name="PLComments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="InitialValue" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="InitialQuantity" Type="Decimal" Precision="14" Scale="0" />
+          <Property Name="RecalledInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ImportDate" Type="DateTime" Precision="3" />
+          <Property Name="InstrumentId" Type="Int32" />
+          <Property Name="PnLLoanValue" Type="Double" />
+          <Property Name="SecurityClosingPrice" Type="Double" />
+          <Property Name="OrdAdrConverts" Type="Boolean" Nullable="false" />
+          <Property Name="PnLCurrencyValue" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DatabaseId" Type="Int32" />
+          <Property Name="AccountId" Type="Int32" />
+          <Property Name="CollReqMargin" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="LegalEntity" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CashSettleMode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ApexTradeType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CtpyAgentAccount" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vPositionspm">
+          <Key>
+            <PropertyRef Name="PositionsID" />
+            <PropertyRef Name="Callable" />
+            <PropertyRef Name="LongInventory" />
+            <PropertyRef Name="OrdAdrConverts" />
+          </Key>
+          <Property Name="DateOfData" Type="DateTime" Precision="3" />
+          <Property Name="OustPending" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BookName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CtpyCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TradeRef" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="BorrowLoan" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Cusip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ticker" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Decimal" Precision="14" Scale="0" />
+          <Property Name="LoanValue" Type="Double" />
+          <Property Name="Rate" Type="Double" />
+          <Property Name="TradeCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CollTypeInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TradeCollateral" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PostTransType" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="TradeDate" Type="DateTime" Precision="3" />
+          <Property Name="SettleDate" Type="DateTime" Precision="3" />
+          <Property Name="TermDate" Type="DateTime" Precision="3" />
+          <Property Name="PrePayRate" Type="Double" />
+          <Property Name="PositionsID" Type="Int32" Nullable="false" />
+          <Property Name="CTPYID" Type="Int32" />
+          <Property Name="QtyToProcess" Type="Int32" />
+          <Property Name="QtyProcessed" Type="Int32" />
+          <Property Name="CtpyMajor" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Security" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="CodeType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="XRef" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Quick" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Sedol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityClass" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Issuer" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityDesc" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="LoanValueCurrency" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DealerID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="FirstLastDay" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SecSettleMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DvpInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Callable" Type="Boolean" Nullable="false" />
+          <Property Name="Finder" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="FRate" Type="Double" />
+          <Property Name="DividendReq" Type="Double" />
+          <Property Name="LoanReturn" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="SettledFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MarketValue" Type="Double" />
+          <Property Name="LinkRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="PricingCurr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="FailCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="InternalComment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ExternalComment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LongInventory" Type="Boolean" Nullable="false" />
+          <Property Name="PLComments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="InitialValue" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="InitialQuantity" Type="Decimal" Precision="14" Scale="0" />
+          <Property Name="RecalledInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ImportDate" Type="DateTime" Precision="3" />
+          <Property Name="InstrumentId" Type="Int32" />
+          <Property Name="PnLLoanValue" Type="Double" />
+          <Property Name="SecurityClosingPrice" Type="Double" />
+          <Property Name="OrdAdrConverts" Type="Boolean" Nullable="false" />
+          <Property Name="PnLCurrencyValue" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DatabaseId" Type="Int32" />
+          <Property Name="AccountId" Type="Int32" />
+          <Property Name="CollReqMargin" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="LegalEntity" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="StockLoanReportsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="vAccounts" EntityType="Self.vAccount" />
+          <EntitySet Name="vPositions" EntityType="Self.vPosition" />
+          <EntitySet Name="vPositionspms" EntityType="Self.vPositionspm" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StockLoanReportsModelStoreContainer" CdmEntityContainer="StockLoanReportsEntities">
+          <EntitySetMapping Name="vAccounts">
+            <EntityTypeMapping TypeName="StockLoanReportsModel.vAccount">
+              <MappingFragment StoreEntitySet="vAccounts">
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="TradeCategory" ColumnName="TradeCategory" />
+                <ScalarProperty Name="DatabaseName" ColumnName="DatabaseName" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="ManagementShortName" ColumnName="ManagementShortName" />
+                <ScalarProperty Name="TreasuryBook" ColumnName="TreasuryBook" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vPositions">
+            <EntityTypeMapping TypeName="StockLoanReportsModel.vPosition">
+              <MappingFragment StoreEntitySet="vPositions">
+                <ScalarProperty Name="DateOfData" ColumnName="DateOfData" />
+                <ScalarProperty Name="OustPending" ColumnName="OustPending" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="CtpyCode" ColumnName="CtpyCode" />
+                <ScalarProperty Name="TradeRef" ColumnName="TradeRef" />
+                <ScalarProperty Name="BorrowLoan" ColumnName="BorrowLoan" />
+                <ScalarProperty Name="Cusip" ColumnName="Cusip" />
+                <ScalarProperty Name="Ticker" ColumnName="Ticker" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="LoanValue" ColumnName="LoanValue" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="TradeCategory" ColumnName="TradeCategory" />
+                <ScalarProperty Name="CollTypeInd" ColumnName="CollTypeInd" />
+                <ScalarProperty Name="TradeCollateral" ColumnName="TradeCollateral" />
+                <ScalarProperty Name="PostTransType" ColumnName="PostTransType" />
+                <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+                <ScalarProperty Name="SettleDate" ColumnName="SettleDate" />
+                <ScalarProperty Name="TermDate" ColumnName="TermDate" />
+                <ScalarProperty Name="PrePayRate" ColumnName="PrePayRate" />
+                <ScalarProperty Name="PositionsID" ColumnName="PositionsID" />
+                <ScalarProperty Name="CTPYID" ColumnName="CTPYID" />
+                <ScalarProperty Name="QtyToProcess" ColumnName="QtyToProcess" />
+                <ScalarProperty Name="QtyProcessed" ColumnName="QtyProcessed" />
+                <ScalarProperty Name="CtpyMajor" ColumnName="CtpyMajor" />
+                <ScalarProperty Name="Security" ColumnName="Security" />
+                <ScalarProperty Name="CodeType" ColumnName="CodeType" />
+                <ScalarProperty Name="XRef" ColumnName="XRef" />
+                <ScalarProperty Name="Quick" ColumnName="Quick" />
+                <ScalarProperty Name="Sedol" ColumnName="Sedol" />
+                <ScalarProperty Name="SecurityClass" ColumnName="SecurityClass" />
+                <ScalarProperty Name="Issuer" ColumnName="Issuer" />
+                <ScalarProperty Name="SecurityDesc" ColumnName="SecurityDesc" />
+                <ScalarProperty Name="LoanValueCurrency" ColumnName="LoanValueCurrency" />
+                <ScalarProperty Name="DealerID" ColumnName="DealerID" />
+                <ScalarProperty Name="FirstLastDay" ColumnName="FirstLastDay" />
+                <ScalarProperty Name="SecSettleMode" ColumnName="SecSettleMode" />
+                <ScalarProperty Name="DvpInd" ColumnName="DvpInd" />
+                <ScalarProperty Name="Callable" ColumnName="Callable" />
+                <ScalarProperty Name="Finder" ColumnName="Finder" />
+                <ScalarProperty Name="FRate" ColumnName="FRate" />
+                <ScalarProperty Name="DividendReq" ColumnName="DividendReq" />
+                <ScalarProperty Name="LoanReturn" ColumnName="LoanReturn" />
+                <ScalarProperty Name="SettledFlag" ColumnName="SettledFlag" />
+                <ScalarProperty Name="MarketValue" ColumnName="MarketValue" />
+                <ScalarProperty Name="LinkRef" ColumnName="LinkRef" />
+                <ScalarProperty Name="PricingCurr" ColumnName="PricingCurr" />
+                <ScalarProperty Name="FailCode" ColumnName="FailCode" />
+                <ScalarProperty Name="InternalComment" ColumnName="InternalComment" />
+                <ScalarProperty Name="ExternalComment" ColumnName="ExternalComment" />
+                <ScalarProperty Name="LongInventory" ColumnName="LongInventory" />
+                <ScalarProperty Name="PLComments" ColumnName="PLComments" />
+                <ScalarProperty Name="InitialValue" ColumnName="InitialValue" />
+                <ScalarProperty Name="InitialQuantity" ColumnName="InitialQuantity" />
+                <ScalarProperty Name="RecalledInd" ColumnName="RecalledInd" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ImportDate" ColumnName="ImportDate" />
+                <ScalarProperty Name="InstrumentId" ColumnName="InstrumentId" />
+                <ScalarProperty Name="PnLLoanValue" ColumnName="PnLLoanValue" />
+                <ScalarProperty Name="SecurityClosingPrice" ColumnName="SecurityClosingPrice" />
+                <ScalarProperty Name="OrdAdrConverts" ColumnName="OrdAdrConverts" />
+                <ScalarProperty Name="PnLCurrencyValue" ColumnName="PnLCurrencyValue" />
+                <ScalarProperty Name="DatabaseId" ColumnName="DatabaseId" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="CollReqMargin" ColumnName="CollReqMargin" />
+                <ScalarProperty Name="LegalEntity" ColumnName="LegalEntity" />
+                <ScalarProperty Name="CashSettleMode" ColumnName="CashSettleMode" />
+                <ScalarProperty Name="ApexTradeType" ColumnName="ApexTradeType" />
+                <ScalarProperty Name="CtpyAgentAccount" ColumnName="CtpyAgentAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vPositionspms">
+            <EntityTypeMapping TypeName="StockLoanReportsModel.vPositionspm">
+              <MappingFragment StoreEntitySet="vPositionspm">
+                <ScalarProperty Name="DateOfData" ColumnName="DateOfData" />
+                <ScalarProperty Name="OustPending" ColumnName="OustPending" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="CtpyCode" ColumnName="CtpyCode" />
+                <ScalarProperty Name="TradeRef" ColumnName="TradeRef" />
+                <ScalarProperty Name="BorrowLoan" ColumnName="BorrowLoan" />
+                <ScalarProperty Name="Cusip" ColumnName="Cusip" />
+                <ScalarProperty Name="Ticker" ColumnName="Ticker" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="LoanValue" ColumnName="LoanValue" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="TradeCategory" ColumnName="TradeCategory" />
+                <ScalarProperty Name="CollTypeInd" ColumnName="CollTypeInd" />
+                <ScalarProperty Name="TradeCollateral" ColumnName="TradeCollateral" />
+                <ScalarProperty Name="PostTransType" ColumnName="PostTransType" />
+                <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+                <ScalarProperty Name="SettleDate" ColumnName="SettleDate" />
+                <ScalarProperty Name="TermDate" ColumnName="TermDate" />
+                <ScalarProperty Name="PrePayRate" ColumnName="PrePayRate" />
+                <ScalarProperty Name="PositionsID" ColumnName="PositionsID" />
+                <ScalarProperty Name="CTPYID" ColumnName="CTPYID" />
+                <ScalarProperty Name="QtyToProcess" ColumnName="QtyToProcess" />
+                <ScalarProperty Name="QtyProcessed" ColumnName="QtyProcessed" />
+                <ScalarProperty Name="CtpyMajor" ColumnName="CtpyMajor" />
+                <ScalarProperty Name="Security" ColumnName="Security" />
+                <ScalarProperty Name="CodeType" ColumnName="CodeType" />
+                <ScalarProperty Name="XRef" ColumnName="XRef" />
+                <ScalarProperty Name="Quick" ColumnName="Quick" />
+                <ScalarProperty Name="Sedol" ColumnName="Sedol" />
+                <ScalarProperty Name="SecurityClass" ColumnName="SecurityClass" />
+                <ScalarProperty Name="Issuer" ColumnName="Issuer" />
+                <ScalarProperty Name="SecurityDesc" ColumnName="SecurityDesc" />
+                <ScalarProperty Name="LoanValueCurrency" ColumnName="LoanValueCurrency" />
+                <ScalarProperty Name="DealerID" ColumnName="DealerID" />
+                <ScalarProperty Name="FirstLastDay" ColumnName="FirstLastDay" />
+                <ScalarProperty Name="SecSettleMode" ColumnName="SecSettleMode" />
+                <ScalarProperty Name="DvpInd" ColumnName="DvpInd" />
+                <ScalarProperty Name="Callable" ColumnName="Callable" />
+                <ScalarProperty Name="Finder" ColumnName="Finder" />
+                <ScalarProperty Name="FRate" ColumnName="FRate" />
+                <ScalarProperty Name="DividendReq" ColumnName="DividendReq" />
+                <ScalarProperty Name="LoanReturn" ColumnName="LoanReturn" />
+                <ScalarProperty Name="SettledFlag" ColumnName="SettledFlag" />
+                <ScalarProperty Name="MarketValue" ColumnName="MarketValue" />
+                <ScalarProperty Name="LinkRef" ColumnName="LinkRef" />
+                <ScalarProperty Name="PricingCurr" ColumnName="PricingCurr" />
+                <ScalarProperty Name="FailCode" ColumnName="FailCode" />
+                <ScalarProperty Name="InternalComment" ColumnName="InternalComment" />
+                <ScalarProperty Name="ExternalComment" ColumnName="ExternalComment" />
+                <ScalarProperty Name="LongInventory" ColumnName="LongInventory" />
+                <ScalarProperty Name="PLComments" ColumnName="PLComments" />
+                <ScalarProperty Name="InitialValue" ColumnName="InitialValue" />
+                <ScalarProperty Name="InitialQuantity" ColumnName="InitialQuantity" />
+                <ScalarProperty Name="RecalledInd" ColumnName="RecalledInd" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ImportDate" ColumnName="ImportDate" />
+                <ScalarProperty Name="InstrumentId" ColumnName="InstrumentId" />
+                <ScalarProperty Name="PnLLoanValue" ColumnName="PnLLoanValue" />
+                <ScalarProperty Name="SecurityClosingPrice" ColumnName="SecurityClosingPrice" />
+                <ScalarProperty Name="OrdAdrConverts" ColumnName="OrdAdrConverts" />
+                <ScalarProperty Name="PnLCurrencyValue" ColumnName="PnLCurrencyValue" />
+                <ScalarProperty Name="DatabaseId" ColumnName="DatabaseId" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="CollReqMargin" ColumnName="CollReqMargin" />
+                <ScalarProperty Name="LegalEntity" ColumnName="LegalEntity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

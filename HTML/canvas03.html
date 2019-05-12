@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+	    
+    <!--
+    <script src="lib/angular.min.js"></script>    
+    <script src="lib/jquery-2.2.1.min.js"></script>
+    -->`
+    
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>        <!--AngularJS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>           <!--jQuery-->           
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>      <!--jQuery UI-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>         <!--Bootstrap-->
+
+
+    <!--CSS-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">    <!--jQuery UI-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">                    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">              <!-- BootstrapOptional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">              <!--Font Awesome-->
+    <style>
+        #mycanvas {
+            border:dotted;
+            cursor: crosshair;
+        }
+
+                
+
+    </style>
+
+</head>
+<body>
+    
+    <canvas  id="mycanvas"  width="400" height="200"></canvas>
+        
+    <div id="lblStart" ></div>
+    <div id="lblMove"></div>
+
+	<script>
+        $(function () {
+            var c = document.getElementById('mycanvas');
+            var ctx = c.getContext('2d');
+
+            var paint;
+            var xStart, yStart, xMove, yMove;
+            var canvasObjList = [];
+
+            c.addEventListener('mousedown', function (e) {
+                paint = true;
+                xStart = e.pageX;
+                yStart = e.pageY;
+            });
+
+            c.addEventListener('mousemove', function (e) {
+                if (paint) {
+                    xMove = e.pageX;
+                    yMove = e.pageY;
+                    Redraw();
+                    Displayxy(xStart, yStart, xMove, yMove);
+                }
+
+            });
+
+            c.addEventListener('mouseup', function (e) {
+                paint = false;
+                canvasObjList.push({
+                    xs: xStart,
+                    ys: yStart,
+                    xe: xMove,
+                    ye: yMove
+                });
+
+            });
+
+            c.addEventListener('mouseleave', function (e) {
+                paint = false;
+            });
+
+
+            function Redraw() {
+                ctx.clearRect(0, 0, c.width, c.height);
+
+                for (var i = 0; i < canvasObjList.length; i++) {
+                    DrawLine(canvasObjList[i].xs, canvasObjList[i].ys, canvasObjList[i].xe, canvasObjList[i].ye);
+                }
+
+                DrawLine(xStart, yStart, xMove, yMove);
+            }
+
+            function DrawLine(xs, ys, xe, ye) {
+                ctx.beginPath();
+                ctx.moveTo(xs, ys);
+                ctx.lineTo(xe, ye);
+                ctx.stroke();
+            }
+
+
+            function Displayxy(xs, ys, xm, ym) {
+                $('#lblStart').html(xs + "," + ys);
+                $('#lblMove').html(xm + "," + ym);
+            }
+
+        });
+	
+	</script>
+		
+		
+</body>
+</html>
