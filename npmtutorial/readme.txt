@@ -1,12 +1,11 @@
+npm init -y
+npm i jquery webpack webpack-cli webpack-dev-server style-loader css-loader rxjs rxjs-compat ag-grid-community
+
+each package is separated by space and not all are needed
+
 webpack
 without webpack.config.js, webpack assumes entry point of project is src/index and will
 output result in dist/main.js minified and optimized
-
-npm init -y
-npm i jquery webpack webpack-cli style-loader css-loader rxjs rxjs-compat ag-grid-community
-
-in package.json, scripts section under "test", add "build":"webpack"
-create webpack.config.js, add css part
 
 mkdir dist
  create index.html, add to bottom in body tag <script src="main.js"></script>
@@ -19,3 +18,23 @@ index.js
  var agGrid = require('ag-grid-community/main');
  import 'ag-grid-community/dist/styles/ag-grid.css';
  import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+
+
+NPM tutorial
+npm init -y creates a package.json file
+
+{
+  "name": "app1",  "version": "1.0.0",  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "t1": "echo \"hi\"",
+    "build": "node index.js"
+  },
+  "keywords": [],  "author": "",  "license": "ISC"
+}
+
+I created index.js with console.log("hello") and added t1 and build scripts
+At command line, I type npm run build and hello displays.  You're build script
+will be used to run webpack and do some bundling
+
