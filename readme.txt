@@ -1,12 +1,15 @@
+d3: Move to main project has only 1 file
+rxjstutorial: just html files with rx code.  Transfer to main proj
+javascript: has tutorial file
+lib: Move index basic and advanced into a special folder in main proj
+nodejsprac: Has basic js tutorial and basic node tutorial
+Typescript: has a tutorial.ts and array.js tutorials
 
-Typescript has a tutorial.ts and array.js tutorials
-lib has a tutorial file.
-Find overlap
+Redo
+npmtutorial: 
+	How to create package.json
+	NPM, Webpack basics
 
-Have a folder for javascript tutorials and typescript tutorials
-Have code to show how to iterate collections
-maps, dictionaries, foreachs
 
-Remove nodeprac since it has old tutorials.  Find overlap and remove.  Seems to be more javascript tutorial
 
-Have area for library tutorials
+

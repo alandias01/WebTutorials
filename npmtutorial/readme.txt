@@ -1,11 +1,12 @@
 npm init -y
-npm i jquery webpack webpack-cli webpack-dev-server style-loader css-loader rxjs rxjs-compat ag-grid-community
-
-each package is separated by space and not all are needed
+npm i -D webpack webpack-cli @webpack-cli/init webpack-dev-server style-loader css-loader
 
 webpack
 without webpack.config.js, webpack assumes entry point of project is src/index and will
 output result in dist/main.js minified and optimized
+
+To create config file, copy off internet or use 
+npx webpack-cli init
 
 mkdir dist
  create index.html, add to bottom in body tag <script src="main.js"></script>
@@ -34,9 +35,7 @@ npm init -y creates a package.json file
   "keywords": [],  "author": "",  "license": "ISC"
 }
 
-I created index.js with console.log("hello") and added t1 and build scripts
-At command line, I type npm run build and hello displays.  You're build script
-will be used to run webpack and do some bundling
+npm run build
 
 WebPack
 webpack is a module bundler for JavaScript applications. 
