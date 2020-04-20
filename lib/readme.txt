@@ -1,1 +1,0 @@
-when using _references.js, VS gives you autocomplete support
